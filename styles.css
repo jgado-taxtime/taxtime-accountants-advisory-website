@@ -1,0 +1,281 @@
+/* Tax Time Accountants Advisory - shared styles (all pages use this file)
+   Brand: navy #16234A, gold #C9A24B, cream #F5F0E8. Fonts: Space Grotesk + Inter. */
+:root{
+  --navy:#16234A; --navy-hi:#1F2F62; --navy-hover:#22336A; --deep:#0F1A38;
+  --gold:#C9A24B; --gold-hi:#D8B360; --cream:#F5F0E8; --white:#fff;
+  --ink:#1B2438; --muted:#5C6579; --line:#DDD5C6;
+  --slate:#B9C2D9; --slate-d:#8D97B0; --pink:#E6489A;
+  --wrap:1160px; --pad:24px;
+  --head:'Space Grotesk',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);font-size:17px;line-height:1.65;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);line-height:1.12;margin:0;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;left:-9999px}
+
+/* buttons: one size everywhere */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 22px;font:600 15px/1 var(--head);text-decoration:none;border-radius:4px;border:2px solid var(--gold);background:var(--gold);color:var(--navy);transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--gold-hi);border-color:var(--gold-hi)}
+.btn.ghost{background:transparent;color:var(--white);border-color:var(--slate)}
+.btn.ghost:hover{border-color:var(--white);background:rgba(255,255,255,.1)}
+.btn.dark{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.btn.dark:hover{background:var(--navy-hover);border-color:var(--navy-hover)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* draft tags: shown only while Roy reviews; removed in the final build */
+.tag{display:inline-block;vertical-align:middle;margin-left:8px;padding:2px 7px;border-radius:3px;background:var(--pink);color:var(--white);font:700 10px/1.5 var(--body);letter-spacing:.06em;text-transform:uppercase}
+
+/* header */
+.site-header{background:var(--navy);border-bottom:1px solid var(--gold);position:sticky;top:0;z-index:20}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.logo img{height:44px;width:auto}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{color:var(--white);text-decoration:none;font:500 15px var(--head)}
+.nav a:hover,.nav a[aria-current]{color:var(--gold)}
+.nav .btn{color:var(--navy)}
+.nav .btn:hover{color:var(--navy)}
+.menu{display:none}
+.menu summary{list-style:none;cursor:pointer;color:var(--white);font:600 15px var(--head);padding:8px 0}
+.menu summary::-webkit-details-marker{display:none}
+.menu nav{position:absolute;left:0;right:0;top:100%;background:var(--navy);padding:8px var(--pad) 20px;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid var(--gold)}
+.menu nav a{color:var(--white);text-decoration:none;font:500 17px var(--head);padding:10px 0}
+
+/* hero */
+.hero{position:relative;background:radial-gradient(ellipse at 28% 18%,var(--navy-hi) 0,var(--navy) 48%,var(--deep) 100%);color:var(--white);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;min-height:600px}
+.hero-text{position:relative;z-index:2;padding:72px 0}
+.hero-text::before{content:"";display:block;width:64px;height:3px;background:var(--gold);margin-bottom:28px}
+.hero h1{font-size:clamp(44px,6.4vw,84px);font-weight:700;color:var(--white)}
+.hero .lede{margin-top:22px;font-size:clamp(18px,1.6vw,21px);color:var(--slate);max-width:22em}
+.hero .signature{margin-top:14px;color:var(--gold);font:500 15px var(--head)}
+.hero .btn-row{margin-top:36px}
+.hero-photo{position:absolute;top:0;right:0;bottom:0;width:52%;z-index:1;background:url(assets/hero-roy.jpg) 50% 72%/cover no-repeat;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%);mask-image:linear-gradient(to right,transparent 0,#000 34%)}
+
+/* badges */
+.badges{background:var(--deep);border-bottom:1px solid var(--gold);padding:22px 0}
+.badges .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:20px 80px}
+.badges img{width:auto;flex:0 0 auto}
+.badges .b1{height:44px}.badges .b2,.badges .b3{height:80px}.badges .b4{height:40px}
+.badges .note{width:100%;margin:0}
+
+/* sections */
+.section{padding:88px 0}
+.section.cream{background:var(--cream)}
+.section h2{font-size:clamp(30px,3.6vw,44px);font-weight:700;color:var(--navy);max-width:20em}
+.section .sub{margin-top:14px;color:var(--muted);max-width:36em}
+
+/* services: ruled list (price is the comparable) */
+.services{margin-top:40px;border-top:2px solid var(--navy)}
+.service{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 40px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
+.service h3{font-size:24px;color:var(--navy)}
+.service p{color:var(--muted);margin-top:2px}
+.service .price{font:600 20px var(--head);color:var(--navy);text-align:right}
+.service .price small{display:block;font:400 14px var(--body);color:var(--muted)}
+.more{margin-top:36px}
+
+/* reviews */
+.quotes{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.quote{border-left:3px solid var(--gold);padding:2px 0 2px 22px;margin:0}
+.quote .stars{color:var(--gold);font-size:18px;letter-spacing:3px;line-height:1}
+.quote blockquote{margin:14px 0 18px;font-size:18px;line-height:1.6}
+.quote figcaption{font:600 15px var(--head);color:var(--navy)}
+.quote figcaption span{display:block;font:400 14px var(--body);color:var(--muted)}
+.reviews-cta{margin-top:40px}
+
+/* contact band */
+.band{background:radial-gradient(ellipse at 70% 0,var(--navy-hi) 0,var(--navy) 55%,var(--deep) 100%);color:var(--white);padding:88px 0}
+.band h2{color:var(--white);font-size:clamp(30px,3.6vw,44px)}
+.band .btn-row{margin-top:28px}
+
+/* footer */
+.site-footer{background:var(--deep);color:var(--slate);font-size:14px;line-height:1.7;padding:64px 0 28px}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.foot h4{margin:0 0 12px;font:600 15px var(--head);color:var(--white)}
+.foot a{display:block;color:var(--slate);text-decoration:none;padding:2px 0}
+.foot a:hover{color:var(--gold)}
+.foot .brand-name{font:700 18px var(--head);color:var(--white);margin-bottom:8px}
+.foot .brand p{max-width:26em}
+.tagline{font:700 14px var(--head);letter-spacing:.02em}.tagline span{color:var(--white)}.tagline em{color:var(--gold);font-style:normal}
+.legal{margin-top:44px;padding-top:20px;border-top:1px solid var(--navy-hover);color:var(--slate-d);font-size:13px}
+
+@media (max-width:900px){
+  .nav{display:none}.menu{display:block}
+  .site-header .wrap{position:relative}
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .hero-text{padding:48px 0 24px}
+  .hero-photo{position:relative;top:auto;right:auto;bottom:auto;width:auto;height:380px;grid-row:2;margin:0 calc(var(--pad)*-1);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 30%);mask-image:linear-gradient(to bottom,transparent 0,#000 30%);background-position:50% 66%}
+  .hero .wrap{padding-bottom:0}
+  .service{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 40px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
+  .service .price{text-align:left}
+  .quotes{grid-template-columns:1fr;gap:32px}
+  .foot{grid-template-columns:1fr 1fr;gap:28px 16px}
+  .foot .brand,.foot .connect{grid-column:1/-1}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .contact-grid a,.contact-grid p{font-size:clamp(15px,4.6vw,19px)}
+  .section{padding:60px 0}
+  .logo img{height:38px}
+  .btn{min-height:40px;padding:8px 16px;font-size:14px}
+  .badges .wrap{flex-wrap:nowrap;gap:3vw}
+  .badges .b1,.badges .b4{height:6vw}.badges .b2,.badges .b3{height:10.8vw}
+  .badges .note{display:none}
+  .hero-photo{height:320px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* inner pages */
+.page-hero{background:radial-gradient(ellipse at 28% 0,var(--navy-hi) 0,var(--navy) 52%,var(--deep) 100%);color:var(--white);padding:84px 0 72px}
+.page-hero .wrap::before{content:"";display:block;width:64px;height:3px;background:var(--gold);margin-bottom:28px}
+.page-hero .wrap>*{max-width:var(--wrap)}
+.page-hero h1{font-size:clamp(36px,5vw,60px);font-weight:700;color:var(--white);max-width:16em}
+.page-hero .lede{margin-top:20px;font-size:clamp(18px,1.6vw,21px);color:var(--slate);max-width:26em}
+.page-hero .btn-row{margin-top:32px}
+.checks{list-style:none;margin:36px 0 0;padding:0;border-top:2px solid var(--navy);max-width:760px}
+.checks li{padding:18px 0 18px 30px;border-bottom:1px solid var(--line);position:relative;font-size:18px}
+.checks li::before{content:"";position:absolute;left:0;top:28px;width:10px;height:10px;background:var(--gold)}
+.price-line{margin-top:32px;font:600 22px var(--head);color:var(--navy)}
+.price-line small{display:block;margin-top:2px;font:400 15px var(--body);color:var(--muted)}
+.service-link{text-decoration:none;color:inherit}
+.service.link{grid-template-columns:minmax(0,1fr) auto auto}
+.service.link .go{font:600 15px var(--head);color:var(--navy)}
+.service.link:hover h3{color:var(--gold-hi)}
+.service.link:hover{background:var(--white)}
+.prose{max-width:760px}
+.prose h2{font-size:24px;margin:40px 0 10px}
+.prose p,.prose li{margin:0 0 10px;color:var(--ink)}
+.prose ul{padding-left:20px;margin:0 0 10px}
+.prose .meta{color:var(--muted)}
+.facts{display:grid;grid-template-columns:200px 1fr;gap:8px 24px;margin:0 0 10px}
+.facts dt{color:var(--muted)}.facts dd{margin:0}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;margin-top:0;max-width:900px}
+.contact-grid .row{padding:22px 0;border-top:1px solid var(--line)}
+.contact-grid .row:nth-child(-n+2){border-top:2px solid var(--navy)}
+.contact-grid h3{font-size:15px;color:var(--muted);font-weight:500;margin-bottom:4px}
+.contact-grid .row{min-width:0}
+.contact-grid a,.contact-grid p{font:600 22px var(--head);color:var(--navy);text-decoration:none;overflow-wrap:anywhere}
+.contact-grid a:hover{color:var(--gold-hi)}
+@media (max-width:900px){
+  .service.link{grid-template-columns:1fr auto}
+  .service.link .price{grid-column:1;text-align:left}
+  .service.link .go{grid-column:2;grid-row:1}
+  .contact-grid{grid-template-columns:1fr}.contact-grid .row:nth-child(2){border-top:1px solid var(--line)}
+  .facts{grid-template-columns:1fr;gap:0}.facts dd{margin-bottom:8px}
+}
+@media (max-width:600px){.contact-grid a,.contact-grid p{font-size:clamp(15px,4.6vw,19px)}}
+
+/* Roy photo on inner heroes and contact bands (same as the old GHL pages) */
+.has-roy{position:relative;overflow:hidden}
+.has-roy .wrap{position:relative;z-index:2}
+.roy-photo{position:absolute;top:0;right:0;bottom:0;width:34%;z-index:1;background:url(assets/hero-roy.jpg) 50% 60%/cover no-repeat;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%);mask-image:linear-gradient(to right,transparent 0,#000 34%)}
+@media (max-width:900px){
+  .has-roy{padding-bottom:0}
+  .has-roy .wrap{padding-bottom:36px}
+  .roy-photo{position:relative;top:auto;right:auto;bottom:auto;width:auto;height:260px;display:block;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 30%);mask-image:linear-gradient(to bottom,transparent 0,#000 30%);background-position:50% 62%}
+}
+.has-roy{min-height:380px}
+@media (max-width:900px){.has-roy{min-height:0}.roy-photo{height:300px}}
+
+@media (max-width:900px){
+  .hero-photo,.roy-photo{height:420px;margin-top:-70px;background-size:cover;background-position:50% 8%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 42%),linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 42%),linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%);mask-composite:intersect}
+  .hero-photo{margin-left:0;margin-right:0}
+}
+@media (max-width:600px){.hero-photo,.roy-photo{height:380px}}
+
+/* No Roy photo on phones for now */
+@media (max-width:900px){.hero-photo,.roy-photo{display:none}.has-roy{padding-bottom:0}.has-roy .wrap{padding-bottom:0}.hero .wrap{padding-bottom:0}}
+@media (max-width:900px){.page-hero.has-roy{padding-bottom:64px}.band.has-roy{padding-bottom:72px}}
+
+.g-reviews{display:block;width:180px;height:auto;margin:0 0 18px}
+@media (max-width:600px){.g-reviews{width:150px}}
+
+/* Roy photo on the left, text on the right (bands and inner heroes) */
+@media (min-width:901px){
+  .roy-photo{right:auto;left:0;background-image:url(assets/roy-left.jpg);-webkit-mask-image:linear-gradient(to left,transparent 0,#000 34%);mask-image:linear-gradient(to left,transparent 0,#000 34%)}
+  .has-roy .wrap{padding-left:380px}
+}
+@media (min-width:901px){.has-roy{display:flex;align-items:center}.has-roy .wrap{width:100%}}
+
+/* Reviews carousel */
+.carousel{margin-top:40px}
+.track{display:flex;gap:40px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 0}
+.track::-webkit-scrollbar{display:none}
+.track:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+.track .quote{flex:0 0 calc((100% - 80px)/3);scroll-snap-align:start}
+.car-nav{display:flex;align-items:center;gap:18px;margin-top:32px}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--navy);background:transparent;color:var(--navy);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}
+.car-btn:hover:not(:disabled){background:var(--navy);color:var(--white)}
+.car-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.car-btn:disabled{opacity:.35;cursor:default}
+.car-dots{display:flex;gap:8px}
+.car-dots span{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.car-dots span.on{background:var(--gold)}
+@media (max-width:900px){.track{gap:28px}.track .quote{flex-basis:calc((100% - 28px)/2)}}
+@media (max-width:600px){.track .quote{flex-basis:100%}}
+
+/* Contact band above the footer uses the grey suit photo, Roy facing the text */
+@media (min-width:901px){.band .roy-photo{background-image:url(assets/roy-suit-left.jpg);background-position:30% 0%}}
+
+/* Photo sits close to the text: anchored to the content column, not the screen edge */
+@media (min-width:901px){
+  .roy-photo{left:max(0px,calc((100% - 1160px)/2 - 70px));width:430px;-webkit-mask-image:linear-gradient(to left,transparent 0,#000 32%),linear-gradient(to right,transparent 0,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to left,transparent 0,#000 32%),linear-gradient(to right,transparent 0,#000 12%);mask-composite:intersect}
+  .has-roy .wrap{padding-left:350px}
+  .band .roy-photo{background-position:20% 0%}
+}
+@media (min-width:901px) and (max-width:1060px){.has-roy .wrap{padding-left:390px}}
+
+/* Every page hero: Roy on the right, same as the Home hero */
+@media (min-width:901px){
+  .page-hero.has-roy .wrap{padding-left:var(--pad)}
+  .page-hero .roy-photo{left:auto;right:0;width:52%;background-image:url(assets/hero-roy.jpg);background-position:50% 52%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%);mask-image:linear-gradient(to right,transparent 0,#000 34%);-webkit-mask-composite:source-over;mask-composite:add}
+}
+@media (min-width:901px){.page-hero.has-roy h1,.page-hero.has-roy .lede{max-width:min(640px,calc(48vw - 24px))}}
+
+/* Soft top edge on the hero photo so it blends into the navy (no visible box) */
+@media (min-width:901px){
+  .hero-photo,.page-hero .roy-photo{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%),linear-gradient(to bottom,transparent 0,#000 38%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 34%),linear-gradient(to bottom,transparent 0,#000 38%);mask-composite:intersect}
+}
+
+/* Photo anchored to the content column (not the screen edge), fading on all sides */
+@media (min-width:901px){
+  .hero-photo,.page-hero .roy-photo{right:max(0px,calc((100% - 1160px)/2 - 90px));left:auto;width:620px;background-position:50% 58%;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%,#000 88%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 34%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent 0,#000 30%,#000 88%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 34%);mask-composite:intersect}
+  .page-hero .roy-photo{width:560px}
+}
+@media (min-width:901px){.hero-photo,.page-hero .roy-photo{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%,#000 88%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 8%);mask-image:linear-gradient(to right,transparent 0,#000 30%,#000 88%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 8%)}}
+
+/* Whole portrait visible (laptop included): photo is as tall as the hero, same ratio as the file */
+@media (min-width:901px){
+  .hero-photo,.page-hero .roy-photo{top:0;bottom:0;height:auto;width:auto;aspect-ratio:4/5;right:max(0px,calc((100% - 1160px)/2 - 30px));left:auto;background-size:100% 100%;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 32%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 10%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent 0,#000 32%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 10%);mask-composite:intersect}
+  .page-hero.has-roy{min-height:460px}
+}
+@media (min-width:901px){
+  .hero-photo,.page-hero .roy-photo{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 32%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 32%);mask-image:linear-gradient(to right,transparent 0,#000 32%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 32%)}
+  .page-hero.has-roy{min-height:500px}
+}
+
+/* Cropped portrait: less empty navy above the head, Roy larger, body visible */
+@media (min-width:901px){
+  .hero-photo,.page-hero .roy-photo{background-image:url(assets/hero-roy-crop.jpg);aspect-ratio:1200/1170;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 12%);
+    mask-image:linear-gradient(to right,transparent 0,#000 30%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 12%)}
+}
+.g-reviews{width:200px;margin:0 0 28px}
+@media (max-width:600px){.g-reviews{width:160px}}
+
+.connect a{display:flex;align-items:center;gap:10px}
+.connect a img{width:22px;height:22px;flex:none}
+.connect a.no-icon{padding-left:32px}
+
+.foot-contact{margin-top:14px}
+.foot-contact .row{display:flex;align-items:flex-start;gap:10px;margin:0 0 10px}
+.foot-contact .row img{width:20px;height:20px;flex:none;margin-top:2px}
