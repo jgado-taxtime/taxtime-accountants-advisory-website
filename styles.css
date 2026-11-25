@@ -279,3 +279,16 @@ p{margin:0}
 .foot-contact{margin-top:14px}
 .foot-contact .row{display:flex;align-items:flex-start;gap:10px;margin:0 0 10px}
 .foot-contact .row img{width:20px;height:20px;flex:none;margin-top:2px}
+
+/* services: header dropdown, Home expandable list */
+.has-dd{position:relative;display:flex;align-items:center}
+.has-dd .dd{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:270px;padding:14px 0 8px;display:none;z-index:30}
+.has-dd .dd::before{content:"";position:absolute;left:0;right:0;top:14px;bottom:0;background:var(--navy-hi);border-top:2px solid var(--gold);border-radius:0 0 8px 8px;box-shadow:0 16px 30px rgba(15,26,56,.35);z-index:-1}
+.has-dd:hover .dd,.has-dd:focus-within .dd{display:block}
+.has-dd .dd a{display:block;padding:11px 22px;font:500 15px var(--head);color:var(--white);white-space:nowrap}
+.has-dd .dd a:hover{color:var(--gold);background:rgba(255,255,255,.05)}
+.has-dd .dd a.dd-all{margin-top:6px;border-top:1px solid rgba(255,255,255,.14);color:var(--gold);font-weight:600}
+#more-services:not([hidden]){display:block}
+#more-services .service:first-child{border-top:0}
+#more-services .service.link{grid-template-columns:minmax(0,1fr) auto}
+@media (max-width:900px){#more-services .service.link{grid-template-columns:minmax(0,1fr) auto}#more-services .service.link .price{grid-column:auto;text-align:right}}
